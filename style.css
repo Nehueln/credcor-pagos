@@ -1,14 +1,25 @@
-/* Reset básico */
+/* Variables con la paleta de colores de Credcor basada en la imagen */
+:root {
+    --primary-blue: #3164f4; /* Azul vibrante de los botones y línea superior */
+    --text-dark: #111111;    /* Negro/Gris muy oscuro para títulos */
+    --text-muted: #555555;   /* Gris para textos secundarios */
+    --bg-light: #f8f9fa;     /* Fondo general suave */
+    --navbar-btn: #3d3d3d;   /* Gris oscuro del botón Precalificación */
+}
+
+/* Reset básico y tipografía */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Tipografía oficial/similar */
 }
 
 body {
-    background-color: #f4f7f6;
-    color: #333;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    /* Línea azul superior característica de la web de Credcor */
+    border-top: 6px solid var(--primary-blue); 
 }
 
 /* NAVBAR */
@@ -17,47 +28,52 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
-    padding: 15px 50px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 20px 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
-    height: 40px; /* Ajusta según tu imagen */
+    height: 70px; /* Tamaño aumentado significativamente */
+    object-fit: contain;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 35px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #4a4a4a;
+    color: var(--text-dark);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
+    transition: color 0.2s ease;
 }
 
-.nav-links a.active {
-    color: #0088cc; /* El azul de 'Nosotros' en tu imagen */
-}
-
+.nav-links a.active, 
 .nav-links a:hover {
-    color: #0088cc;
+    color: var(--primary-blue); /* Azul Credcor para el enlace activo */
 }
 
 .btn-precalificacion {
-    background-color: #444444; /* Gris oscuro del botón */
+    background-color: var(--navbar-btn);
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
     font-size: 14px;
+    transition: background 0.3s ease;
 }
 
 .btn-precalificacion:hover {
-    background-color: #333333;
+    background-color: #222222;
 }
 
 /* CONTENEDOR DE PAGO */
@@ -65,71 +81,94 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 110px);
+    padding: 40px 20px;
 }
 
 .payment-card {
-    background-color: white;
+    background-color: #ffffff;
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
+    position: relative;
+}
+
+/* Acento azul arriba de la tarjeta, similar al detalle de "REQUISITOS" */
+.payment-card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 6px;
+    background-color: var(--primary-blue);
+    border-radius: 3px;
 }
 
 .payment-card h2 {
     text-align: center;
-    margin-bottom: 15px;
-    color: #2c3e50;
-}
-
-hr {
-    border: 0;
-    height: 1px;
-    background: #e0e0e0;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: -0.5px;
 }
 
 .payment-details p {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-size: 15px;
+    color: var(--text-muted);
+}
+
+.payment-details strong {
+    color: var(--text-dark);
 }
 
 .payment-amounts {
-    background-color: #f9f9f9;
-    padding: 20px;
+    background-color: var(--bg-light);
+    padding: 25px;
     border-radius: 8px;
-    margin: 20px 0;
+    margin: 25px 0;
+    border: 1px solid #eeeeee;
 }
 
 .amount-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-size: 15px;
+    color: var(--text-muted);
 }
 
 .total {
-    font-weight: bold;
-    font-size: 18px;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-    margin-top: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--text-dark);
+    border-top: 2px solid #e0e0e0;
+    padding-top: 15px;
+    margin-top: 15px;
 }
 
+/* BOTÓN DE PAGO ESTILO CREDCOR */
 .btn-pay {
     width: 100%;
-    background-color: #0088cc; /* Color del logo */
+    background-color: var(--primary-blue);
     color: white;
     border: none;
-    padding: 15px;
+    padding: 16px;
     font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
+    font-weight: 700;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(49, 100, 244, 0.3);
 }
 
 .btn-pay:hover {
-    background-color: #006699;
+    background-color: #2652d1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(49, 100, 244, 0.4);
 }
