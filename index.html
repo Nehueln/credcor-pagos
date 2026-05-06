@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Pagos - Credcor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar basado en tu imagen -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <!-- Reemplaza con la ruta a tu imagen -->
+            <img src="tu_logo.png" alt="Credcor Logo" class="logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#" class="active">Nosotros</a></li>
+            <li><a href="#">Requisitos</a></li>
+            <li><a href="#">Créditos</a></li>
+            <li><a href="#">Faqs</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <div class="nav-button">
+            <a href="#" class="btn-precalificacion">Precalificación ↓</a>
+        </div>
+    </nav>
+
+    <!-- Tarjeta de pago dinámica -->
+    <main class="payment-container">
+        <div class="payment-card">
+            <h2>Resumen de Pago</h2>
+            <hr>
+            <div class="payment-details">
+                <p><strong>Titular:</strong> <span id="clientName">-</span></p>
+                <p><strong>DNI:</strong> <span id="clientDni">-</span></p>
+                <p><strong>Vencimiento:</strong> <span id="dueDate">-</span></p>
+            </div>
+            
+            <div class="payment-amounts">
+                <div class="amount-row">
+                    <span>Capital:</span>
+                    <span>$<span id="capitalAmount">0.00</span></span>
+                </div>
+                <div class="amount-row">
+                    <span>Interés:</span>
+                    <span>$<span id="interestAmount">0.00</span></span>
+                </div>
+                <div class="amount-row total">
+                    <span>Total a Pagar:</span>
+                    <span>$<span id="totalAmount">0.00</span></span>
+                </div>
+            </div>
+
+            <button class="btn-pay" id="payButton">Pagar Ahora</button>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
