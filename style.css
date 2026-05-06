@@ -38,7 +38,7 @@ body {
 }
 
 .logo {
-    height: 70px; /* Tamaño aumentado significativamente */
+    height: 100px; /* Tamaño aumentado significativamente */
     object-fit: contain;
 }
 
